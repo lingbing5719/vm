@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.websiteInformation.mapper.BannerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.websiteInformation.entity.Banner">
+        <id column="Id" property="Id" />
+        <result column="name" property="name" />
+        <result column="classify" property="classify" />
+        <result column="picUrl" property="picUrl" />
+        <result column="url" property="url" />
+        <result column="creatorId" property="creatorId" />
+        <result column="creatorTime" property="creatorTime" />
+        <result column="introduction" property="introduction" />
+        <result column="isValid" property="isValid" />
+        <result column="place" property="place" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, name, classify, picUrl, url, creatorId, creatorTime, introduction, isValid, place
+    </sql>
+
+    <select id="selectBannerPageByName" resultType="com.ch.vm.websiteInformation.entity.Banner" parameterType="com.ch.vm.websiteInformation.entity.Banner">
+            SELECT * FROM vm_banner
+            <trim prefix="WHERE">
+                <if test='name!=null and name!=" "'>
+                    name like CONCAT('%',#{name},'%')
+                </if>
+            </trim>
+    </select>
+
+</mapper>

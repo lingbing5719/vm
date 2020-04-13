@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.user.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.user.entity.User">
+        <id column="Id" property="Id" />
+        <result column="name" property="name" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="sex" property="sex" />
+        <result column="telephone" property="telephone" />
+        <result column="identity" property="identity" />
+        <result column="email" property="email" />
+        <result column="identification" property="identification" />
+        <result column="headSculpture" property="headSculpture" />
+        <result column="enabled" property="enabled" />
+        <result column="status" property="status" />
+        <result column="schoolId" property="schoolId" />
+        <result column="createtime" property="createtime" />
+        <result column="lastLoginTime" property="lastLoginTime" />
+        <result column="thisLoginTime" property="thisLoginTime" />
+        <result column="dis_createIp" property="disCreateip" />
+        <result column="dis_school" property="disSchool" />
+        <result column="dis_schooltype" property="disSchooltype" />
+        <result column="dis_citys" property="disCitys" />
+        <result column="dis_userMd5" property="disUsermd5" />
+        <result column="dis_groupName" property="disGroupname" />
+        <result column="dis_cityId" property="disCityid" />
+        <result column="dis_privilegeId" property="disPrivilegeid" />
+    </resultMap>
+    <resultMap id="lazyLoadRoles" type="com.ch.vm.user.entity.User" extends="BaseResultMap">
+        <collection property="roles" ofType="com.ch.vm.user.entity.Role" select="com.ch.vm.user.mapper.UserMapper.getRolesByUserId"
+                    column="id"></collection>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, name, username, password, sex, telephone, identity, email, identification, headSculpture, enabled, status, schoolId, createtime, lastLoginTime, thisLoginTime, dis_createIp, dis_school, dis_schooltype, dis_citys, dis_userMd5, dis_groupName, dis_cityId, dis_privilegeId
+    </sql>
+    <select id="loadUserByUsername" resultMap="lazyLoadRoles">
+        select * from vm_user WHERE username=#{username};
+    </select>
+
+    <select id="getRolesByUserId" resultType="com.ch.vm.user.entity.Role">
+        SELECT r.* FROM vm_user_role u,vm_role r where u.rid=r.id AND u.userid=#{id}
+    </select>
+</mapper>

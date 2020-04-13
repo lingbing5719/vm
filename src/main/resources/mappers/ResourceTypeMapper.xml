@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.vod.mapper.ResourceTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.vod.entity.ResourceType">
+        <id column="Id" property="Id" />
+        <result column="name" property="name" />
+        <result column="createUserId" property="createUserId" />
+        <result column="createTime" property="createTime" />
+        <collection property="resourceClassifies" column="resourceClassifies.Id" ofType="com.ch.vm.vod.entity.ResourceClassify">
+            <id property="Id" column="bId"></id>
+            <result property="resourceType" column="resourceType"></result>
+            <result property="resourceClassify" column="resourceClassify"></result>
+            <result column="bcreateUserId" property="createUserId" />
+            <result column="bcreateTime" property="createTime" />
+        </collection>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, name, createUserId, createTime
+    </sql>
+
+    <select id="selectResourceTypePageByName" resultType="com.ch.vm.vod.entity.ResourceType" parameterType="com.ch.vm.vod.entity.ResourceType">
+        SELECT * FROM vm_resource_type
+        <trim prefix="WHERE">
+            <if test='name!=null and name!=" "'>
+                name like CONCAT('%',#{name},'%')
+            </if>
+        </trim>
+    </select>
+
+    <select id="selectPageVO"  resultMap="BaseResultMap">
+        SELECT b.Id 'bId',b.createUserId 'bcreateUserId',b.createTime 'bcreateTime',b.resourceType,b.resourceClassify,a.* FROM vm_resource_type as a, vm_resource_classify as b WHERE a.Id = b.resourceType
+        AND
+        <if test='id!=null and id!=" "'>
+            a.Id = #{id}
+        </if>
+
+    </select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.stAction.mapper.StActionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.stAction.entity.StAction">
+        <id column="id" property="id" />
+        <result column="kctm" property="kctm" />
+        <result column="kjqhcs" property="kjqhcs" />
+        <result column="kjqhsj" property="kjqhsj" />
+        <result column="lbjssj" property="lbjssj" />
+        <result column="lbkssj" property="lbkssj" />
+        <result column="lbzjip" property="lbzjip" />
+        <result column="lsdxsqycs" property="lsdxsqycs" />
+        <result column="lsdxsqysj" property="lsdxsqysj" />
+        <result column="lssjtsj" property="lssjtsj" />
+        <result column="lsxjtcs" property="lsxjtcs" />
+        <result column="lsxjtsj" property="lsxjtsj" />
+        <result column="skr" property="skr" />
+        <result column="skrdw" property="skrdw" />
+        <result column="xueduan" property="xueduan" />
+        <result column="xueke" property="xueke" />
+        <result column="chubanshe" property="chubanshe" />
+        <result column="cebie" property="cebie" />
+        <result column="xssjtcs" property="xssjtcs" />
+        <result column="xszqcs" property="xszqcs" />
+        <result column="xssjtsj" property="xssjtsj" />
+        <result column="xszqsj" property="xszqsj" />
+        <result column="kczsj" property="kczsj" />
+        <result column="rsid" property="rsid" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, kctm, kjqhcs, kjqhsj, lbjssj, lbkssj, lbzjip, lsdxsqycs, lsdxsqysj, lssjtsj, lsxjtcs, lsxjtsj, skr, skrdw, xueduan, xueke, chubanshe, cebie, xssjtcs, xszqcs, xssjtsj, xszqsj, kczsj, rsid
+    </sql>
+
+</mapper>

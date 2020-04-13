@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.vod.mapper.ResourceContentsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.vod.entity.ResourceContents">
+        <id column="Id" property="Id" />
+        <result column="name" property="name" />
+        <result column="teacherName" property="teacherName" />
+        <result column="city" property="city" />
+        <result column="schoolType" property="schoolType" />
+        <result column="school" property="school" />
+        <result column="studySection" property="studySection" />
+        <result column="course" property="course" />
+        <result column="press" property="press" />
+        <result column="volume" property="volume" />
+        <result column="contentsName" property="contentsName" />
+        <result column="createUserId" property="createUserId" />
+        <result column="createTime" property="createTime" />
+        <result column="appendix" property="appendix" />
+        <result column="resource" property="resource" />
+        <result column="introduction" property="introduction" />
+        <result column="status" property="status" />
+        <result column="resourceType" property="resourceType" />
+        <result column="resourceClassify" property="resourceClassify" />
+        <result column="type" property="type" />
+        <result column="picUrl" property="picUrl" />
+        <result column="contentsNameId" property="contentsNameId" />
+        <result column="hitCount" property="hitCount" />
+        <result column="isRecommend" property="isRecommend" />
+        <result column="createUserCity" property="createUserCity" />
+        <result column="createUserSchoolId" property="createUserSchoolId" />
+        <result column="liveScope" property="liveScope" />
+        <result column="dis_contentMd5" property="disContentmd5" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, name, teacherName, city, schoolType, school, studySection, course, press, volume, contentsName, createUserId, createTime, appendix, resource, introduction, status, resourceType, resourceClassify, type, picUrl, contentsNameId, hitCount, isRecommend, createUserCity, createUserSchoolId, liveScope, dis_contentMd5
+    </sql>
+
+</mapper>

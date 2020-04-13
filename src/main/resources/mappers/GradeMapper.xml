@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.vod.mapper.GradeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.vod.entity.Grade">
+        <id column="id" property="id" />
+        <result column="userId" property="userId" />
+        <result column="sourceId" property="sourceId" />
+        <result column="score" property="score" />
+        <result column="type" property="type" />
+        <result column="createTime" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, userId, sourceId, score, type, createTime
+    </sql>
+
+</mapper>

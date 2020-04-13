@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.vm.vod.mapper.VodWatchHistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ch.vm.vod.entity.VodWatchHistory">
+        <id column="uid" property="uid" />
+        <result column="vid" property="vid" />
+        <result column="time" property="time" />
+        <result column="date" property="date" />
+        <result column="totaltime" property="totaltime" />
+        <result column="dis_umd5" property="disUmd5" />
+        <result column="dis_vmd5" property="disVmd5" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        uid, vid, time, date, totaltime, dis_umd5, dis_vmd5
+    </sql>
+
+</mapper>
